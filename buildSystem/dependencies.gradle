@@ -1,0 +1,21 @@
+ext.app = [
+    kotlinVersion: "1.1.51",
+    gradlePluginVersion: "3.0.1",
+    androidMinSdkVersion: 19,
+    androidTargetSdkVersion: 26,
+    compileSdkVersion: 26,
+    applicationId: "com.movies.careem.tmdb",
+    versionCode: 1,
+    versionName: "1.0"
+]
+
+def support_version = "26.1.0"
+def junit_version = "4.12"
+def kotlin_data_binding_compiler_version = "3.0.1"
+
+ext.deps = [
+    kotlin: "org.jetbrains.kotlin:kotlin-stdlib-jre7:$app.kotlinVersion",
+    kotlinDataBindingCompiler: "com.android.databinding:compiler:$kotlin_data_binding_compiler_version",
+    supportLibrary: "com.android.support:appcompat-v7:$support_version",
+    jUnit: "junit:junit:$junit_version",
+]

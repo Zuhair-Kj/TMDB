@@ -1,0 +1,38 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    defaultConfig {
+        applicationId rootProject.ext.app.applicationId
+        minSdkVersion rootProject.ext.app.androidMinSdkVersion
+        targetSdkVersion rootProject.ext.app.androidTargetSdkVersion
+        compileSdkVersion rootProject.ext.app.compileSdkVersion
+        versionCode rootProject.ext.app.versionCode
+        versionName rootProject.ext.app.versionName
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation rootProject.ext.deps.kotlin
+    implementation rootProject.ext.deps.supportLibrary
+    testImplementation rootProject.ext.deps.jUnit
+    kapt rootProject.ext.deps.kotlinDataBindingCompiler
+}
