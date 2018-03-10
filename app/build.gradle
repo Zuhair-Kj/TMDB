@@ -30,9 +30,14 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation rootProject.ext.deps.kotlin
     implementation rootProject.ext.deps.supportLibrary
     testImplementation rootProject.ext.deps.jUnit
     kapt rootProject.ext.deps.kotlinDataBindingCompiler
+    implementation rootProject.ext.deps.retrofit
+    implementation rootProject.ext.deps.gson
+    implementation rootProject.ext.deps.gsonConverter
+    implementation rootProject.ext.deps.rxJavaConverter
+    implementation rootProject.ext.deps.rxAndroid
+    implementation rootProject.ext.deps.okhttpLogger
 }

@@ -9,13 +9,25 @@ ext.app = [
     versionName: "1.0"
 ]
 
-def support_version = "26.1.0"
-def junit_version = "4.12"
-def kotlin_data_binding_compiler_version = "3.0.1"
+def supportVersion = "26.1.0"
+def junitVersion = "4.12"
+def kotlinDataBindingCompilerVersion = "3.0.1"
+def retrofitVersion = "2.3.0"
+def gsonVersion = "2.8.2"
+def rxjavaVersion = "2.2.0"
+def rxAndroidVersion = "2.0.1"
+def okhttpLoggerVersion = "3.9.1"
 
 ext.deps = [
     kotlin: "org.jetbrains.kotlin:kotlin-stdlib-jre7:$app.kotlinVersion",
-    kotlinDataBindingCompiler: "com.android.databinding:compiler:$kotlin_data_binding_compiler_version",
-    supportLibrary: "com.android.support:appcompat-v7:$support_version",
-    jUnit: "junit:junit:$junit_version",
+    kotlinDataBindingCompiler: "com.android.databinding:compiler:$kotlinDataBindingCompilerVersion",
+    supportLibrary: "com.android.support:appcompat-v7:$supportVersion",
+    jUnit: "junit:junit:$junitVersion",
+    retrofit: "com.squareup.retrofit2:retrofit:$retrofitVersion",
+    rxJavaConverter: "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion",
+    gsonConverter: "com.squareup.retrofit2:converter-gson:$retrofitVersion",
+    gson: "com.google.code.gson:gson:$gsonVersion",
+    rxJava: "io.reactivex.rxjava2:rxjava:$rxjavaVersion",
+    rxAndroid: "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion",
+    okhttpLogger: "com.squareup.okhttp3:logging-interceptor:$okhttpLoggerVersion"
 ]
