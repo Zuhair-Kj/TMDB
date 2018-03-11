@@ -1,5 +1,5 @@
 ext.app = [
-    kotlinVersion: "1.1.51",
+    kotlinVersion: "1.2.0",
     gradlePluginVersion: "3.0.1",
     androidMinSdkVersion: 19,
     androidTargetSdkVersion: 26,
@@ -17,6 +17,7 @@ def gsonVersion = "2.8.2"
 def rxjavaVersion = "2.2.0"
 def rxAndroidVersion = "2.0.1"
 def okhttpLoggerVersion = "3.9.1"
+def daggerVersion = "2.13"
 
 ext.deps = [
     kotlin: "org.jetbrains.kotlin:kotlin-stdlib-jre7:$app.kotlinVersion",
@@ -29,5 +30,9 @@ ext.deps = [
     gson: "com.google.code.gson:gson:$gsonVersion",
     rxJava: "io.reactivex.rxjava2:rxjava:$rxjavaVersion",
     rxAndroid: "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion",
-    okhttpLogger: "com.squareup.okhttp3:logging-interceptor:$okhttpLoggerVersion"
+    okhttpLogger: "com.squareup.okhttp3:logging-interceptor:$okhttpLoggerVersion",
+    daggerAndroid: "com.google.dagger:dagger-android:$daggerVersion",
+    daggerSupport: "com.google.dagger:dagger-android-support:$daggerVersion",
+    daggerAndroidProcessor: "com.google.dagger:dagger-android-processor:$daggerVersion",
+    daggerCompiler: "com.google.dagger:dagger-compiler:$daggerVersion",
 ]

@@ -40,4 +40,9 @@ dependencies {
     implementation rootProject.ext.deps.rxJavaConverter
     implementation rootProject.ext.deps.rxAndroid
     implementation rootProject.ext.deps.okhttpLogger
+
+    implementation rootProject.ext.deps.daggerAndroid
+    implementation rootProject.ext.deps.daggerSupport
+    kapt rootProject.ext.deps.daggerAndroidProcessor
+    kapt rootProject.ext.deps.daggerCompiler
 }
