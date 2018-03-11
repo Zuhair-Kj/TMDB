@@ -29,6 +29,10 @@ android {
     }
 }
 
+kapt {
+    correctErrorTypes true
+}
+
 dependencies {
     implementation rootProject.ext.deps.kotlin
     implementation rootProject.ext.deps.supportLibrary
