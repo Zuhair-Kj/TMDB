@@ -5,4 +5,5 @@ import com.google.gson.annotations.SerializedName
 class MovieMetaData constructor(val id: String?,
                                 val title: String?,
                                 @SerializedName("vote_average") val votes: Float,
-                                val adult: Boolean)
+                                val adult: Boolean,
+                                @SerializedName("poster_path") val imageUrl: String)
