@@ -36,6 +36,8 @@ class MoviesAdapter constructor(val items: MutableList<MovieMetaData>) : Recycle
 
         fun populateCard(movie: MovieMetaData) {
             listItembinding.movie = movie
+            if (!movie.adult)
+                listItembinding.adult.text = listItembinding.root.context.getString(R.string.adult_safe)
             listItembinding.executePendingBindings()
         }
     }

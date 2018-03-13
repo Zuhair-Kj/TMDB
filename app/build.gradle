@@ -49,6 +49,7 @@ dependencies {
     implementation rootProject.ext.deps.daggerSupport
     kapt rootProject.ext.deps.daggerAndroidProcessor
     kapt rootProject.ext.deps.daggerCompiler
-    implementation 'com.android.support:recyclerview-v7:26.1.0'
-    implementation 'com.android.support:cardview-v7:26.1.0'
+    implementation rootProject.ext.deps.recyclerView
+    implementation rootProject.ext.deps.cardView
+    implementation rootProject.ext.deps.imageLoader
 }

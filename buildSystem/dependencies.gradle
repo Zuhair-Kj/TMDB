@@ -11,17 +11,17 @@ ext.app = [
 
 def supportVersion = "26.1.0"
 def junitVersion = "4.12"
-def kotlinDataBindingCompilerVersion = "3.0.1"
 def retrofitVersion = "2.3.0"
 def gsonVersion = "2.8.2"
 def rxjavaVersion = "2.2.0"
 def rxAndroidVersion = "2.0.1"
 def okhttpLoggerVersion = "3.9.1"
 def daggerVersion = "2.13"
+def imageLoaderVersion = "1.9.5"
 
 ext.deps = [
     kotlin: "org.jetbrains.kotlin:kotlin-stdlib-jre7:$app.kotlinVersion",
-    kotlinDataBindingCompiler: "com.android.databinding:compiler:$kotlinDataBindingCompilerVersion",
+    kotlinDataBindingCompiler: "com.android.databinding:compiler:$app.gradlePluginVersion",
     supportLibrary: "com.android.support:appcompat-v7:$supportVersion",
     jUnit: "junit:junit:$junitVersion",
     retrofit: "com.squareup.retrofit2:retrofit:$retrofitVersion",
@@ -35,4 +35,7 @@ ext.deps = [
     daggerSupport: "com.google.dagger:dagger-android-support:$daggerVersion",
     daggerAndroidProcessor: "com.google.dagger:dagger-android-processor:$daggerVersion",
     daggerCompiler: "com.google.dagger:dagger-compiler:$daggerVersion",
+    recyclerView: "com.android.support:recyclerview-v7:$supportVersion",
+    cardView: "com.android.support:cardview-v7:$supportVersion",
+    imageLoader: "com.nostra13.universalimageloader:universal-image-loader:$imageLoaderVersion"
 ]

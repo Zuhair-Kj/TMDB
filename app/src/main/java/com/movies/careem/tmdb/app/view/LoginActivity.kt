@@ -40,6 +40,10 @@ class LoginActivity : AppCompatActivity() {
         binding.title = "Hola!"
         binding.executePendingBindings()
 
+        doLogin()
+    }
+
+    fun doLogin() {
         sessionCall.execute(object : BaseApiCallback<GuestSession>() {
             override fun onError(e: Throwable) {
                 e.apply {

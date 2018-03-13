@@ -24,7 +24,6 @@ class DiscoveryActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityDiscoveryBinding
     @Inject lateinit var discoveryCall: DiscoveryCall
-    @Inject lateinit var sharedPrefsUtils: SharedPreferencesUtils
     lateinit var moviesAdapter: MoviesAdapter
 
     @Module
