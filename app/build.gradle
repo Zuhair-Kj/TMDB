@@ -29,6 +29,10 @@ android {
     }
 }
 
+kapt {
+    correctErrorTypes true
+}
+
 dependencies {
     implementation rootProject.ext.deps.kotlin
     implementation rootProject.ext.deps.supportLibrary
@@ -45,4 +49,7 @@ dependencies {
     implementation rootProject.ext.deps.daggerSupport
     kapt rootProject.ext.deps.daggerAndroidProcessor
     kapt rootProject.ext.deps.daggerCompiler
+    implementation rootProject.ext.deps.recyclerView
+    implementation rootProject.ext.deps.cardView
+    implementation rootProject.ext.deps.imageLoader
 }

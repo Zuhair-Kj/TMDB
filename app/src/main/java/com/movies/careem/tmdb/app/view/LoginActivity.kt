@@ -1,6 +1,7 @@
 package com.movies.careem.tmdb.app.view
 
 import android.content.Context
+import android.content.Intent
 import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -39,6 +40,10 @@ class LoginActivity : AppCompatActivity() {
         binding.title = "Hola!"
         binding.executePendingBindings()
 
+        doLogin()
+    }
+
+    fun doLogin() {
         sessionCall.execute(object : BaseApiCallback<GuestSession>() {
             override fun onError(e: Throwable) {
                 e.apply {
@@ -50,11 +55,17 @@ class LoginActivity : AppCompatActivity() {
             override fun onNext(session: GuestSession) {
                 session.sessionId?.apply {
                     sharedPrefsUtils.storeSessionId(this)
+
+                    val id = sharedPrefsUtils.getStoredSessionId()
+                    Toast.makeText(this@LoginActivity, id, Toast.LENGTH_SHORT).show()
+                    goToDiscovery()
                 }
-                val id = sharedPrefsUtils.getStoredSessionId()
-                Toast.makeText(this@LoginActivity, id, Toast.LENGTH_SHORT).show()
             }
         })
+    }
+
+    fun goToDiscovery() {
+        startActivity(Intent(this, DiscoveryActivity::class.java))
     }
 
     override fun setContentView(layoutResID: Int) {
