@@ -12,7 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".app.view.LoginActivity">
+        <activity
+            android:name=".app.view.LoginActivity"
+            android:screenOrientation="portrait">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,8 +22,10 @@
             </intent-filter>
 
         </activity>
-        
-        <activity android:name=".app.view.DiscoveryActivity" />
+
+        <activity
+            android:name=".app.view.DiscoveryActivity"
+            android:screenOrientation="portrait" />
 
     </application>
 </manifest>

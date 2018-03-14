@@ -1,48 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
-    xmlns:bind="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <data>
+
         <import type="com.movies.careem.tmdb.app.model.MovieMetaData" />
-        <variable name="movie" type="MovieMetaData" />
+
+        <variable
+            name="movie"
+            type="MovieMetaData" />
     </data>
 
     <android.support.v7.widget.CardView
         android:id="@+id/card_view"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
-        android:layout_gravity="center"
-        card_view:cardCornerRadius="4dp">
+        android:layout_width="@dimen/card_view_width"
+        android:layout_height="@dimen/card_view_height"
+        android:layout_gravity="center">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="@color/cardview_dark_background">
-
-            <TextView
-                android:id="@+id/title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@{movie.title}" />
-
-            <TextView
-                android:id="@+id/rating"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@{Float.toString(movie.votes)}" />
-
-            <TextView
-                android:id="@+id/adult"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
             <ImageView
                 android:id="@+id/image"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                bind:imageUrl="@{movie.imageUrl}"/>
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                bind:imageUrl="@{movie.imageUrl}" />
 
-        </LinearLayout>
+            <LinearLayout
+                android:background="@color/colorShadeGray"
+                android:gravity="start"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_medium"
+                android:layout_gravity="bottom">
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{movie.title}"
+                    style="@style/thumbnail_white" />
+
+                <TextView
+                    android:id="@+id/rating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{Float.toString(movie.votes)}"
+                    style="@style/thumbnail_white" />
+
+                <TextView
+                    android:id="@+id/adult"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/thumbnail_white" />
+            </LinearLayout>
+
+        </FrameLayout>
     </android.support.v7.widget.CardView>
 </layout>

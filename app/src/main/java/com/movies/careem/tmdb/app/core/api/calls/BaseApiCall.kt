@@ -30,4 +30,6 @@ abstract class BaseApiCall<T> constructor(val apiEngine: ApiEngine,
                     .observeOn(observeOn)
         }
     }
+
+    fun unsubscribe() = compositeObserver.dispose()
 }

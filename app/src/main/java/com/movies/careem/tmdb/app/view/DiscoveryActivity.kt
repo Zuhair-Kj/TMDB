@@ -5,14 +5,13 @@ import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.GridLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.widget.Toast
 import com.movies.careem.tmdb.R
 import com.movies.careem.tmdb.app.core.api.calls.BaseApiCallback
 import com.movies.careem.tmdb.app.core.api.calls.DiscoveryCall
 import com.movies.careem.tmdb.app.core.injection.PerActivity
 import com.movies.careem.tmdb.app.model.MovieCollection
-import com.movies.careem.tmdb.app.model.MovieMetaData
-import com.movies.careem.tmdb.app.utils.SharedPreferencesUtils
 import com.movies.careem.tmdb.app.view.adapters.MoviesAdapter
 import com.movies.careem.tmdb.databinding.ActivityDiscoveryBinding
 import dagger.Module
@@ -25,6 +24,21 @@ class DiscoveryActivity : AppCompatActivity() {
     lateinit var binding: ActivityDiscoveryBinding
     @Inject lateinit var discoveryCall: DiscoveryCall
     lateinit var moviesAdapter: MoviesAdapter
+    var onScrollListener: RecyclerView.OnScrollListener
+
+    init {
+        onScrollListener = object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                if (dy < 0) return
+                //not interested in scroll ups
+                val lastPosition = (recyclerView.layoutManager as GridLayoutManager).findLastVisibleItemPosition()
+                // Triggers an event when you are about oto reach the bottom of the page.
+                if (lastPosition >= moviesAdapter.itemCount - 3) {
+                    callApiAndUpdateAdapter(moviesAdapter.nextPageNumber++)
+                }
+            }
+        }
+    }
 
     @Module
     class InjectModule {
@@ -42,6 +56,7 @@ class DiscoveryActivity : AppCompatActivity() {
         binding.list.layoutManager = GridLayoutManager(this, 3)
         moviesAdapter = MoviesAdapter(mutableListOf())
         binding.list.adapter = moviesAdapter
+        binding.list.addOnScrollListener(onScrollListener)
 
         callApiAndUpdateAdapter()
 
@@ -52,7 +67,13 @@ class DiscoveryActivity : AppCompatActivity() {
         setContentView(binding.root)
     }
 
-    fun callApiAndUpdateAdapter() {
+    override fun onStop() {
+        super.onStop()
+        discoveryCall.unsubscribe()
+    }
+
+    fun callApiAndUpdateAdapter(pageNumber: Int = 1) {
+        discoveryCall.pageNumber = pageNumber
         discoveryCall.execute(object : BaseApiCallback<MovieCollection>() {
 
             override fun onNext(movieCollection: MovieCollection) {

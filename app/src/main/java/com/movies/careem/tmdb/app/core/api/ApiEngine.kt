@@ -10,5 +10,5 @@ import javax.inject.Inject
 class ApiEngine @Inject constructor(val remoteClient: RemoteClient) {
     fun getGuestToken(): Single<GuestSession> = remoteClient.createGuestSession(Config.apiKey)
 
-    fun getMovies(): Single<MovieCollection> = remoteClient.getMovies(Config.apiKey)
+    fun getMovies(pageNumber: Int): Single<MovieCollection> = remoteClient.getMovies(pageNumber, Config.apiKey)
 }

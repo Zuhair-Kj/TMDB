@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="card_view_height">250dp</dimen>
+    <dimen name="card_view_width">200dp</dimen>
+    <dimen name="font_size_medium">14sp</dimen>
+    <dimen name="padding_medium">10dp</dimen>
+</resources>

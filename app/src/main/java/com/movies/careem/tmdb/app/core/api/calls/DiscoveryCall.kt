@@ -7,5 +7,7 @@ import javax.inject.Inject
 
 class DiscoveryCall @Inject constructor(apiEngine: ApiEngine): BaseApiCall<MovieCollection>(apiEngine) {
 
-    override fun buildObservable(): Observable<MovieCollection> = apiEngine.getMovies().toObservable()
+    var pageNumber = 1
+
+    override fun buildObservable(): Observable<MovieCollection> = apiEngine.getMovies(pageNumber).toObservable()
 }

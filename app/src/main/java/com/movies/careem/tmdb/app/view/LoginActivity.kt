@@ -37,7 +37,7 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         AndroidInjection.inject(this)
-        binding.title = "Hola!"
+        binding.title = resources.getString(R.string.signing_in)
         binding.executePendingBindings()
 
         doLogin()
@@ -55,13 +55,16 @@ class LoginActivity : AppCompatActivity() {
             override fun onNext(session: GuestSession) {
                 session.sessionId?.apply {
                     sharedPrefsUtils.storeSessionId(this)
-
-                    val id = sharedPrefsUtils.getStoredSessionId()
-                    Toast.makeText(this@LoginActivity, id, Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@LoginActivity, this@LoginActivity.resources.getString(R.string.welcome), Toast.LENGTH_SHORT).show()
                     goToDiscovery()
                 }
             }
         })
+    }
+
+    override fun onStop() {
+        super.onStop()
+        sessionCall.unsubscribe()
     }
 
     fun goToDiscovery() {

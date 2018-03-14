@@ -6,4 +6,9 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="thumbnail_white">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">@dimen/font_size_medium</item>
+    </style>
+
 </resources>
