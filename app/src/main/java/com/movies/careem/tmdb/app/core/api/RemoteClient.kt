@@ -7,13 +7,15 @@ import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-
+const val KEY_API_KEY: String = "api_key"
+const val KEY_PAGE: String = "page"
 interface RemoteClient {
 
+
     @GET("/3/authentication/guest_session/new")
-    fun createGuestSession(@Query("api_key") token: String): Single<GuestSession>
+    fun createGuestSession(@Query(KEY_API_KEY) token: String): Single<GuestSession>
 
     @GET("/3/discover/movie")
-    fun getMovies(@Query("api_key") token: String): Single<MovieCollection>
+    fun getMovies(@Query(KEY_PAGE) page: Int, @Query(KEY_API_KEY) token: String): Single<MovieCollection>
 
 }

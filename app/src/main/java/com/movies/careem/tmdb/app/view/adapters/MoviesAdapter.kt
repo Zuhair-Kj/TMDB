@@ -9,7 +9,7 @@ import com.movies.careem.tmdb.R
 import com.movies.careem.tmdb.app.model.MovieMetaData
 import com.movies.careem.tmdb.databinding.ListItemMediaBinding
 
-class MoviesAdapter constructor(val items: MutableList<MovieMetaData>) : RecyclerView.Adapter<MoviesAdapter.MovieViewHolder>() {
+class MoviesAdapter constructor(val items: MutableList<MovieMetaData>, var nextPageNumber: Int = 1) : RecyclerView.Adapter<MoviesAdapter.MovieViewHolder>() {
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
         holder.populateCard(items.get(position))
