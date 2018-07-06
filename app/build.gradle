@@ -51,5 +51,11 @@ dependencies {
     kapt rootProject.ext.deps.daggerCompiler
     implementation rootProject.ext.deps.recyclerView
     implementation rootProject.ext.deps.cardView
-    implementation rootProject.ext.deps.imageLoader
+    implementation (rootProject.ext.deps.glide) {
+        force = false
+
+        exclude group: 'com.android.support', module: 'support-annotations'
+        exclude group: 'com.android.support', module: 'support-fragment'
+    }
+    kapt rootProject.ext.deps.glide
 }

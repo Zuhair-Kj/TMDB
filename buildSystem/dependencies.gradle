@@ -17,7 +17,7 @@ def rxjavaVersion = "2.2.0"
 def rxAndroidVersion = "2.0.1"
 def okhttpLoggerVersion = "3.9.1"
 def daggerVersion = "2.13"
-def imageLoaderVersion = "1.9.5"
+def glideVersion = "4.6.1"
 
 ext.deps = [
     kotlin: "org.jetbrains.kotlin:kotlin-stdlib-jre7:$app.kotlinVersion",
@@ -37,5 +37,5 @@ ext.deps = [
     daggerCompiler: "com.google.dagger:dagger-compiler:$daggerVersion",
     recyclerView: "com.android.support:recyclerview-v7:$supportVersion",
     cardView: "com.android.support:cardview-v7:$supportVersion",
-    imageLoader: "com.nostra13.universalimageloader:universal-image-loader:$imageLoaderVersion"
+    glide: "com.github.bumptech.glide:glide:$glideVersion"
 ]

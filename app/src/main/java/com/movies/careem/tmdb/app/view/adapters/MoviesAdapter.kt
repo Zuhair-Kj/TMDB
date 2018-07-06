@@ -17,28 +17,26 @@ class MoviesAdapter constructor(val items: MutableList<MovieMetaData>, var nextP
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
         val binding = DataBindingUtil.inflate<ListItemMediaBinding>(
-                LayoutInflater.from(parent.context),
-                R.layout.list_item_media,
-                parent,
-                false)
+            LayoutInflater.from(parent.context),
+            R.layout.list_item_media,
+            parent,
+            false)
 
-        return MovieViewHolder(binding.cardView)
+        return MovieViewHolder(binding)
     }
 
     override fun getItemCount(): Int = items.size
 
-    class MovieViewHolder constructor(cardView: CardView) : RecyclerView.ViewHolder(cardView) {
-        val listItembinding: ListItemMediaBinding
-
-        init {
-            listItembinding = DataBindingUtil.bind(cardView)
-        }
+    class MovieViewHolder constructor(val listItembinding: ListItemMediaBinding) :
+        RecyclerView.ViewHolder(listItembinding.cardView) {
 
         fun populateCard(movie: MovieMetaData) {
-            listItembinding.movie = movie
-            if (!movie.adult)
-                listItembinding.adult.text = listItembinding.root.context.getString(R.string.adult_safe)
-            listItembinding.executePendingBindings()
+            if (listItembinding != null) {
+                listItembinding.movie = movie
+                if (!movie.adult)
+                    listItembinding.adult.text = listItembinding.root.context.getString(R.string.adult_safe)
+                listItembinding.executePendingBindings()
+            }
         }
     }
 }

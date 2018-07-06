@@ -7,6 +7,6 @@ class MovieMetaData constructor(val id: String?,
                                 val title: String?,
                                 @SerializedName("vote_average") val votes: Float,
                                 val adult: Boolean,
-                                @SerializedName("poster_path") val imageUrl: String) {
-    fun getImageFullUrl(): String = Config.imageBaseUrl + imageUrl
+                                @SerializedName("poster_path") val imageUrl: String?) {
+    fun getImageFullUrl(): String? = Config.imageBaseUrl + imageUrl
 }
