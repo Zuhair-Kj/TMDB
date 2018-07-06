@@ -31,12 +31,11 @@ class MoviesAdapter constructor(val items: MutableList<MovieMetaData>, var nextP
         RecyclerView.ViewHolder(listItembinding.cardView) {
 
         fun populateCard(movie: MovieMetaData) {
-            if (listItembinding != null) {
-                listItembinding.movie = movie
-                if (!movie.adult)
-                    listItembinding.adult.text = listItembinding.root.context.getString(R.string.adult_safe)
-                listItembinding.executePendingBindings()
-            }
+            listItembinding.movie = movie
+            if (!movie.adult)
+                listItembinding.adult.text = listItembinding.root.context.getString(R.string.adult_safe)
+            listItembinding.executePendingBindings()
+
         }
     }
 }

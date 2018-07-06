@@ -8,7 +8,7 @@ import com.movies.careem.tmdb.app.utils.ImageUrlHelper
 class ImageBindingHelper {
     companion object {
         @JvmStatic
-        @BindingAdapter("bind:imageUrl")
+        @BindingAdapter("imageUrl")
         fun bindImageUrl(imageView: ImageView, imageName: String?) {
             val finalUrl = ImageUrlHelper.getImageFullUrl(imageView.context, imageName?:"")
             Glide.with(imageView.context)
