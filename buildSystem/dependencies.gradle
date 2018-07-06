@@ -1,6 +1,6 @@
 ext.app = [
-    kotlinVersion: "1.2.0",
-    gradlePluginVersion: "3.0.1",
+    kotlinVersion: "1.2.30",
+    gradlePluginVersion: "3.1.2",
     androidMinSdkVersion: 19,
     androidTargetSdkVersion: 26,
     compileSdkVersion: 26,
