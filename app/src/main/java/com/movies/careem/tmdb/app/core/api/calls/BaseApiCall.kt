@@ -8,26 +8,32 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 
-abstract class BaseApiCall<T> constructor(val apiEngine: ApiEngine,
-                                          var subscribeOn: Scheduler = Schedulers.io(),
-                                          var observeOn: Scheduler = AndroidSchedulers.mainThread()) {
+abstract class BaseApiCall<T> constructor(
+    val apiEngine: ApiEngine,
+    var subscribeOn: Scheduler = Schedulers.io(),
+    var observeOn: Scheduler = AndroidSchedulers.mainThread()
+) {
 
     private val compositeObserver = CompositeDisposable()
 
     protected abstract fun buildObservable(): Observable<T>
 
     fun execute(callback: BaseApiCallback<T>) {
-        compositeObserver.add(buildObservable()
+        compositeObserver.add(
+            buildObservable()
                 .compose(applySchedulers())
-                .subscribeWith(callback))
+                .subscribeWith(callback)
+        )
     }
 
-    private fun applySchedulers(subscribeOn: Scheduler = this.subscribeOn,
-                                observeOn: Scheduler = this.observeOn): ObservableTransformer<T, T> {
+    private fun applySchedulers(
+        subscribeOn: Scheduler = this.subscribeOn,
+        observeOn: Scheduler = this.observeOn
+    ): ObservableTransformer<T, T> {
         return ObservableTransformer {
             it.subscribeOn(subscribeOn)
-                    .unsubscribeOn(subscribeOn)
-                    .observeOn(observeOn)
+                .unsubscribeOn(subscribeOn)
+                .observeOn(observeOn)
         }
     }
 

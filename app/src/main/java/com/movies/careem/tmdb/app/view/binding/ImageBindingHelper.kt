@@ -10,7 +10,7 @@ class ImageBindingHelper {
         @JvmStatic
         @BindingAdapter("imageUrl")
         fun bindImageUrl(imageView: ImageView, imageName: String?) {
-            val finalUrl = ImageUrlHelper.getImageFullUrl(imageView.context, imageName?:"")
+            val finalUrl = ImageUrlHelper.getImageFullUrl(imageView.context, imageName ?: "")
             Glide.with(imageView.context)
                     .asBitmap()
                     .load(finalUrl)

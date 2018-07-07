@@ -30,7 +30,7 @@ class DiscoveryActivity : AppCompatActivity() {
         onScrollListener = object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 if (dy < 0) return
-                //not interested in scroll ups
+                // not interested in scroll ups
                 val lastPosition = (recyclerView.layoutManager as GridLayoutManager).findLastVisibleItemPosition()
                 // Triggers an event when you are about oto reach the bottom of the page.
                 if (lastPosition >= moviesAdapter.itemCount - 3) {
@@ -59,7 +59,6 @@ class DiscoveryActivity : AppCompatActivity() {
         binding.list.addOnScrollListener(onScrollListener)
 
         callApiAndUpdateAdapter()
-
     }
 
     override fun setContentView(layoutResID: Int) {

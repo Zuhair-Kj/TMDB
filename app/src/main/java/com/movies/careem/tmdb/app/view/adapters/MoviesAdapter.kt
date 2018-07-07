@@ -1,7 +1,6 @@
 package com.movies.careem.tmdb.app.view.adapters
 
 import android.databinding.DataBindingUtil
-import android.support.v7.widget.CardView
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -35,7 +34,6 @@ class MoviesAdapter constructor(val items: MutableList<MovieMetaData>, var nextP
             if (!movie.adult)
                 listItembinding.adult.text = listItembinding.root.context.getString(R.string.adult_safe)
             listItembinding.executePendingBindings()
-
         }
     }
 }

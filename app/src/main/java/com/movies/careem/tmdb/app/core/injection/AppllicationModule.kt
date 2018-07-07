@@ -8,8 +8,8 @@ import dagger.android.ContributesAndroidInjector
 @Module
 abstract class AppllicationModule {
     @ContributesAndroidInjector(modules = arrayOf(LoginActivity.InjectModule::class))
-    abstract fun contributesLoginActivityInjection() : LoginActivity
+    abstract fun contributesLoginActivityInjection(): LoginActivity
 
     @ContributesAndroidInjector(modules = arrayOf(DiscoveryActivity.InjectModule::class))
-    abstract fun contributesDiscoveryActivityInjection() : DiscoveryActivity
+    abstract fun contributesDiscoveryActivityInjection(): DiscoveryActivity
 }

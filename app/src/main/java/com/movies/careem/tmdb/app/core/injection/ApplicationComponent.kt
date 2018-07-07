@@ -6,9 +6,9 @@ import dagger.android.AndroidInjectionModule
 import javax.inject.Singleton
 
 @Singleton
-@Component (modules = arrayOf(AndroidInjectionModule::class,
-        CoreModule::class,
-        AppllicationModule::class))
+@Component(modules = arrayOf(AndroidInjectionModule::class,
+    CoreModule::class,
+    AppllicationModule::class))
 interface ApplicationComponent {
     fun inject(application: MyApplication)
 }

@@ -5,7 +5,7 @@ import com.movies.careem.tmdb.app.model.MovieCollection
 import io.reactivex.Observable
 import javax.inject.Inject
 
-class DiscoveryCall @Inject constructor(apiEngine: ApiEngine): BaseApiCall<MovieCollection>(apiEngine) {
+class DiscoveryCall @Inject constructor(apiEngine: ApiEngine) : BaseApiCall<MovieCollection>(apiEngine) {
 
     var pageNumber = 1
 
