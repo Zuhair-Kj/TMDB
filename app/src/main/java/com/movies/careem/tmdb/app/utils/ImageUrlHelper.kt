@@ -11,7 +11,7 @@ class ImageUrlHelper {
         // example https://image.tmdb.org/t/p/w185/8uO0gUM8aNqYLs1OsTBQiXu0fEv.jpg
 
         private fun getImageConfiguration(context: Context): Int {
-            return context.resources.getInteger(R.integer.poster_config_size)
+            return context.resources.getInteger(R.integer.poster_config_size) 
         }
     }
 }
