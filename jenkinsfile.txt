@@ -1,0 +1,22 @@
+pipeline {
+    agent any
+    stages {
+        stage('Cleaning Stage') {
+            steps {
+                sh './gradlew clean'
+            }
+        }
+
+        stage('Checking Stage') {
+            steps {
+                sh './gradlew ktlint'
+            }
+        }
+
+        stage('Building Stage') {
+            steps {
+                sh './gradlew app:assembleDebug'
+            }
+        }
+    }
+}
